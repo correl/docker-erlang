@@ -3,6 +3,8 @@ FROM debian:jessie
 MAINTAINER Correl Roush <correl@gmail.com>
 
 ENV OTP_VERSION 17.3
+ENV REBAR_VERSION 2.5.1
+ENV RELX_VERSION 1.1.0-rc1
 
 RUN DEBIAN_FRONTEND=noninteractive  \
     apt-get update -qq \
@@ -24,17 +26,17 @@ RUN cd /usr/src \
     && make \
     && make install
 
-ADD https://github.com/rebar/rebar/archive/master.tar.gz  /usr/src/rebar-master.tar.gz
+ADD https://github.com/rebar/rebar/archive/${REBAR_VERSION}.tar.gz  /usr/src/rebar-${REBAR_VERSION}.tar.gz
 RUN cd /usr/src \
-    && tar zxf rebar-master.tar.gz \
-    && cd rebar-master \
+    && tar zxf rebar-${REBAR_VERSION}.tar.gz \
+    && cd rebar-${REBAR_VERSION} \
     && make \
     && cp rebar /usr/bin/rebar
 
-ADD https://github.com/erlware/relx/archive/master.tar.gz /usr/src/relx-master.tar.gz
+ADD https://github.com/erlware/relx/archive/${RELX_VERSION}.tar.gz /usr/src/relx-${RELX_VERSION}.tar.gz
 RUN cd /usr/src \
-    && tar zxf relx-master.tar.gz \
-    && cd relx-master \
+    && tar zxf relx-${RELX_VERSION}.tar.gz \
+    && cd relx-${RELX_VERSION} \
     && make \
     && cp relx /usr/bin/relx
 
