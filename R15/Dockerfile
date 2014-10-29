@@ -24,20 +24,23 @@ RUN cd /usr/src \
     && cd otp_src_${OTP_VERSION%-1} \
     && ./configure \
     && make \
-    && make install
+    && make install \
+    && cd / && rm -rf /usr/src/otp_src_${OTP_VERSION%-1}
 
 ADD https://github.com/rebar/rebar/archive/${REBAR_VERSION}.tar.gz  /usr/src/rebar-${REBAR_VERSION}.tar.gz
 RUN cd /usr/src \
     && tar zxf rebar-${REBAR_VERSION}.tar.gz \
     && cd rebar-${REBAR_VERSION} \
     && make \
-    && cp rebar /usr/bin/rebar
+    && cp rebar /usr/bin/rebar \
+    && cd / && rm -rf /usr/src/rebar-${REBAR_VERSION}
 
 ADD https://github.com/erlware/relx/archive/${RELX_VERSION}.tar.gz /usr/src/relx-${RELX_VERSION}.tar.gz
 RUN cd /usr/src \
     && tar zxf relx-${RELX_VERSION}.tar.gz \
     && cd relx-${RELX_VERSION} \
     && make \
-    && cp relx /usr/bin/relx
+    && cp relx /usr/bin/relx \
+    && cd / && rm -rf /usr/src/relx-${RELX_VERSION}
 
 CMD ["erl"]
