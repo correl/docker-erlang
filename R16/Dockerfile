@@ -38,9 +38,9 @@ RUN cd /usr/src \
 ADD https://github.com/erlware/relx/archive/${RELX_VERSION}.tar.gz /usr/src/relx-${RELX_VERSION}.tar.gz
 RUN cd /usr/src \
     && tar zxf relx-${RELX_VERSION}.tar.gz \
-    && cd relx-${RELX_VERSION} \
+    && cd relx-${RELX_VERSION#v} \
     && make \
     && cp relx /usr/bin/relx \
-    && cd / && rm -rf /usr/src/relx-${RELX_VERSION}
+    && cd / && rm -rf /usr/src/relx-${RELX_VERSION#v}
 
 CMD ["erl"]
