@@ -4,7 +4,7 @@ MAINTAINER Correl Roush <correl@gmail.com>
 
 ENV OTP_VERSION 17.3
 ENV REBAR_VERSION 2.5.1
-ENV RELX_VERSION 1.1.0-rc1
+ENV RELX_VERSION v1.1.0
 
 RUN DEBIAN_FRONTEND=noninteractive  \
     apt-get update -qq \
