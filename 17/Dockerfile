@@ -2,7 +2,7 @@ FROM debian:jessie
 
 MAINTAINER Correl Roush <correl@gmail.com>
 
-ENV OTP_VERSION 17.4
+ENV OTP_VERSION 17.5
 ENV REBAR_VERSION 2.5.1
 ENV RELX_VERSION v1.1.0
 
