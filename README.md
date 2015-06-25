@@ -22,8 +22,8 @@ applications.
 
 *   Start a throwaway instance of the erlang shell
 
-        docker run -it --rm correl/erlang:R17
+        docker run -it --rm correl/erlang:17
 
 *   Run a container to use a development environment
 
-        docker run -it --name erlang-dev correl/erlang:R17 /bin/bash
+        docker run -it --name erlang-dev correl/erlang:17 /bin/bash
